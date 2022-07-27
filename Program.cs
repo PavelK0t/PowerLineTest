@@ -6,9 +6,6 @@ namespace PowerLine
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
-
             var car = new Car("Car", 70, 0.5, 70, 4);
             Console.WriteLine($"Общий запас хода: {car.PowerReserve()} км");
             Console.WriteLine($"Запас хода с 30 литрами: {car.PowerReserve(30)} км");
