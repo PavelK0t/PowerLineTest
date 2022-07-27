@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace PowerLine
 {
@@ -72,7 +72,7 @@ namespace PowerLine
         /// <param name="_gasVolume">Уровень топлива</param>
         /// <param name="_passengerCount">Количество пассажиров</param>
         /// <returns></returns>
-        public virtual double PowerReserve(double _gasVolume, byte _passengerCount) { return -1; }
+        public abstract double PowerReserve(double _gasVolume, byte _passengerCount);
 
         /// <summary>
         /// Возвращает запас хода от текущего уровня топлива и массы груза
@@ -80,7 +80,7 @@ namespace PowerLine
         /// <param name="_gasVolume">Уровень топлива</param>
         /// <param name="_cargoWeight">Масса груза</param>
         /// <returns></returns>
-        public virtual double PowerReserve(double _gasVolume, double _cargoWeight) { return -1; }
+        public abstract double PowerReserve(double _gasVolume, double _cargoWeight);
 
         /// <summary>
         /// Возвращает время необходимое на преодоление пути
@@ -121,6 +121,11 @@ namespace PowerLine
             }
             throw new Exception("Wrong parameters");
         }
+
+        public override double PowerReserve(double _gasVolume, double _cargoWeight)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     /// <summary>
@@ -144,6 +149,11 @@ namespace PowerLine
             }
             throw new Exception("Wrong parameters");
         }
+
+        public override double PowerReserve(double _gasVolume, byte _passengerCount)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     /// <summary>
@@ -152,6 +162,16 @@ namespace PowerLine
     public class SportCar : Vehicle
     {
         public SportCar(string _type, double _tankVolume, double _fuelSpending, double _speed) : base(_type, _tankVolume, _fuelSpending, _speed) { }
+
+        public override double PowerReserve(double _gasVolume, double _cargoWeight)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override double PowerReserve(double _gasVolume, byte _passengerCount)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
